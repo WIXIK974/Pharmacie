@@ -1,0 +1,52 @@
+/* Style général pour le StackPane */
+.stack-pane {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Style pour l'AnchorPane (fond de l'application) */
+.anchor-pane {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #00796b;
+    -fx-border-width: 2px;
+}
+
+/* Style pour les TextField (champs de texte) */
+.text-field {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-background-color: #e8f5e9;
+    -fx-border-color: #4caf50;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-text-fill: #212121;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+/* Style pour les PasswordField (champs de mot de passe) */
+.password-field {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-background-color: #e8f5e9;
+    -fx-border-color: #4caf50;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-text-fill: #212121;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+/* Style pour l'ImageView (image) */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+    -fx-border-color: #4caf50;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+}
+
+/* Ajout d'un style personnalisé au focus */
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #00796b;
+    -fx-background-color: #ffffff;
+    -fx-border-width: 2px;
+}
