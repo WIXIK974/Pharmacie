@@ -4,5 +4,7 @@ public class getData {
 
     // Champ statique pour stocker le nom d'utilisateur connecté
     public static String username;
+    public static String prenom;
+
 
 }

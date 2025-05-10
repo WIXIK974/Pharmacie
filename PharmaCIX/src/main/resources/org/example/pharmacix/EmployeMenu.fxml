@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pharmacix.EmployeController">
+   <children>
+      <Button fx:id="btnMenu" layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#menuview" text="Menu" />
+      <TableView fx:id="employeTable" layoutX="14.0" layoutY="14.0" prefHeight="491.0" prefWidth="725.0">
+         <columns>
+            <TableColumn fx:id="idPersonneColumn" prefWidth="100" text="ID employé" />
+            <TableColumn fx:id="professionColumn" prefWidth="100" text="profession" />
+            <TableColumn fx:id="salaireColumn" prefWidth="100" text="salaire (€)" />
+            <TableColumn fx:id="typeContratColumn" prefWidth="80" text="Type de contrat" />
+            <TableColumn fx:id="statusColumn" prefWidth="120" text="Status de l'employé" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

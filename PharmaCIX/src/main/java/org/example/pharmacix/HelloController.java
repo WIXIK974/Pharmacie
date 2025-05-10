@@ -2,6 +2,7 @@ package org.example.pharmacix;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -9,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,89 +27,93 @@ public class HelloController {
     @FXML
     private TextField utilisateur;
 
-    private PreparedStatement prepare;
-    private Connection connect;
-    private ResultSet result;
-
     private double x = 0;
     private double y = 0;
 
     public void connectionadmin() {
-        // Initialisation de la connexion
-        connect = connector.connectDb(); // Connexion via votre classe connector
-
         String sql = "SELECT * FROM Employe WHERE identifiant = ? AND password = ?";
 
-        try {
-            // Vérification des champs vides
+        try (Connection connect = connector.connectDb();
+             PreparedStatement prepare = connect.prepareStatement(sql)) {
+
             if (utilisateur.getText().isEmpty() || motdepasse.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erreur");
-                alert.setHeaderText(null);
-                alert.setContentText("Le champ est vide");
-                alert.showAndWait();
+                showAlert(Alert.AlertType.ERROR, "Erreur", "Le champ est vide");
                 return;
             }
 
-            prepare = connect.prepareStatement(sql);
             prepare.setString(1, utilisateur.getText());
             prepare.setString(2, motdepasse.getText());
 
-            result = prepare.executeQuery();
+            try (ResultSet result = prepare.executeQuery()) {
+                if (result.next()) {
+                    System.out.println("Test1");
+                    getData.username = utilisateur.getText();
 
-            if (result.next()) {
-                // Connexion réussie
-                getData.username = utilisateur.getText(); // Remplacez par votre logique si nécessaire
+                    showAlert(Alert.AlertType.INFORMATION, "Connexion réussie", "Bienvenue " + getData.username + "!"); // reprend le prenom de l'utilisateur puis crée une boite de dialogue avec
 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Message d'information");
-                alert.setHeaderText(null);
-                alert.setContentText("connection réussie !");
-                alert.showAndWait();
+                    // Fermer la fenêtre actuelle
+                    Stage stageActuel = (Stage) seconnecter.getScene().getWindow();
+                    stageActuel.close();
 
-                // Masquer la fenêtre actuelle
-                seconnecter.getScene().getWindow().hide();
+                    // Charger la nouvelle fenêtre
+                    Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
 
-                // Charger la nouvelle fenêtre
-                Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
+                    stage.setResizable(false);
 
-                // Gestion du déplacement de la fenêtre
-                root.setOnMousePressed((MouseEvent event) -> {
-                    x = event.getSceneX();
-                    y = event.getSceneY();
-                });
 
-                root.setOnMouseDragged((MouseEvent event) -> {
-                    stage.setX(event.getScreenX() - x);
-                    stage.setY(event.getScreenY() - y);
-                });
+                    // Permettre le déplacement de la fenêtre
+                    root.setOnMousePressed(event -> {
+                        x = event.getSceneX();
+                        y = event.getSceneY();
+                    });
 
-                stage.initStyle(StageStyle.TRANSPARENT);
-                stage.setScene(scene);
-                stage.show();
+                    root.setOnMouseDragged(event -> {
+                        stage.setX(event.getScreenX() - x);
+                        stage.setY(event.getScreenY() - y);
+                    });
+                    stage.setScene(scene);
+                    stage.show();
 
-            } else {
-                // Identifiant ou mot de passe incorrect
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Message d'erreur");
-                alert.setHeaderText(null);
-                alert.setContentText("Wrong Username/Password");
-                alert.showAndWait();
+                } else {
+                    showAlert(Alert.AlertType.ERROR, "Erreur", "Identifiant ou mot de passe incorrect");
+
+                }
+
             }
+
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            // Fermeture des ressources pour éviter les fuites
-            try {
-                if (result != null) result.close();
-                if (prepare != null) prepare.close();
-                if (connect != null) connect.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Une erreur s'est produite !");
         }
     }
+
+    private void showAlert(Alert.AlertType type, String titre, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(titre);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    @FXML
+    public void initialize() {
+        motdepasse.setOnKeyPressed(event -> {
+            if (event.getCode().toString().equals("ENTER")) {
+                connectionadmin();
+            }
+        });
+
+        utilisateur.setOnKeyPressed(event -> {
+            if (event.getCode().toString().equals("ENTER")) {
+                connectionadmin();
+            }
+        });
+    }
+
+
+
+
 }

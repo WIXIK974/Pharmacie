@@ -1,5 +1,5 @@
 module org.example.pharmacix {
-    requires javafx.controls;
+    requires javafx.controls; // Ensure JavaFX dependencies are added to the build system
     requires javafx.fxml;
     requires java.sql;
     requires java.desktop;
