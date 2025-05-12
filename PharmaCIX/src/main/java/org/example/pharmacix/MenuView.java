@@ -42,6 +42,15 @@ public class MenuView {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    public void commandesview(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Commandes.fxml"));
+        Parent root = loader.load();
+
+        // Récupérer la fenêtre actuelle et changer la scène
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
 
 }
