@@ -22,11 +22,11 @@
                <font>
                   <Font name="MuktaMahee SemiBold" size="13.0" />
                </font></Button>
-            <Button layoutX="-7.0" layoutY="254.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="267.0" text="COMMANDES">
+            <Button layoutX="-7.0" layoutY="254.0" mnemonicParsing="false" onAction="#commandesview" prefHeight="71.0" prefWidth="267.0" text="COMMANDES">
                <font>
                   <Font name="MuktaMahee SemiBold" size="13.0" />
                </font></Button>
-            <Button layoutX="-7.0" layoutY="326.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="267.0" text="ARCHIVE MEDIC">
+            <Button layoutX="-7.0" layoutY="326.0" mnemonicParsing="false"   prefHeight="71.0" prefWidth="267.0" text="ARCHIVE MEDIC">
                <font>
                   <Font name="MuktaMahee SemiBold" size="13.0" />
                </font></Button>
