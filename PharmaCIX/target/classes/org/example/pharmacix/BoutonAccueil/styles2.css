@@ -10,6 +10,23 @@
     -fx-border-width: 2px;
 }
 
+.table-view .table-row-cell:selected,
+.table-view .table-row-cell:selected:hover {
+    -fx-background-color: #a5d6a7 !important; /* Vert clair visible */
+    -fx-text-fill: #000000 !important; /* Texte noir bien lisible */
+}
+
+Button {
+    -fx-background-color: #4CAF50; /* Vert */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 40px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.5, 0, 3);
+}
+
 /* Style pour les TextField (champs de texte) */
 .text-field {
     -fx-font-size: 14px;

@@ -1,6 +1,7 @@
 package org.example.pharmacix;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -14,10 +15,15 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("PharmaCIX!");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
+
+
 
     public static void main(String[] args) {
         launch();
     }
-}  
+
+
+}

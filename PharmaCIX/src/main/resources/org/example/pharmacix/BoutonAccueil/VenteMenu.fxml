@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles2.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pharmacix.VenteController">
+    <children>
+        <Button fx:id="btnMenu" layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#menuview" text="Menu" />
+        <TableView fx:id="venteTable" layoutX="14.0" layoutY="14.0" prefHeight="491.0" prefWidth="725.0">
+            <columns>
+                <TableColumn fx:id="numVenteColumn" prefWidth="100" text="num Vente" />
+                <TableColumn fx:id="dateVenteColumn" prefWidth="100" text="date Vente" />
+                <TableColumn fx:id="fk_numeroSSColumn" prefWidth="100" text="num SS" />
+                <TableColumn fx:id="fk_numEmployeColumn" prefWidth="80" text="num Employé" />
+                <TableColumn fx:id="fk_numMedicamentColumn" prefWidth="120" text="num Medicament" />
+                <TableColumn fx:id="fk_numOrdonnanceColumn" prefWidth="120" text="num Ordonnance" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

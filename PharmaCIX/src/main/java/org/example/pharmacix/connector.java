@@ -1,23 +1,49 @@
 package org.example.pharmacix;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class connector {
-    private static final String URL = "jdbc:mysql://172.20.10.7:3306/pharmacieDB";
-    private static final String USER = "gaetan";
-    private static final String PASSWORD = "changemePLS";
+
+    private Employe employeActif;
+
+    public void setEmployeActif(Employe employe) {
+        this.employeActif = employe;
+    }
 
     public static Connection connectDb() {
-        Connection connection = null;
+        Connection conn = null;
         try {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connexion réussie !");
-        } catch (SQLException e) {
-            System.err.println("Échec de la connexion à la base de données.");
+            // Chargement du fichier de configuration
+            Properties properties = new Properties();
+            FileInputStream fis = new FileInputStream("config.properties");
+            properties.load(fis);
+
+             //Récupération des informations de la base de données
+            String dbUrl = properties.getProperty("DB_URL");
+            String dbUser = properties.getProperty("DB_USER");
+            String dbPassword = properties.getProperty("DB_PASSWORD");
+
+            // Vérification si les informations sont présentes
+            if (dbUrl == null || dbUser == null || dbPassword == null) {
+                throw new SQLException("Les informations de connexion ne sont pas définies dans le fichier config.properties !");
+            }
+            // Connexion à la base de données
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            System.out.println("Connexion réussie à la base de données !");
+        } catch (IOException | SQLException e) {
+            System.out.println("Échec de la connexion à la base de données.");
             e.printStackTrace();
         }
-        return connection;
+        return conn;
+    }
+
+    public static void main(String[] args) {
+        // Test de la connexion à la base de données
+        connectDb();
     }
 }
