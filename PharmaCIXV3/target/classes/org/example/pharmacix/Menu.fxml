@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pharmacix.MenuView">
+   <children>
+      <AnchorPane layoutX="250.0" layoutY="-8.0" prefHeight="440.0" prefWidth="457.0" style="-fx-background-color: #ffffff;" />
+      <AnchorPane layoutX="-9.0" layoutY="-6.0" prefHeight="398.0" prefWidth="716.0" style="-fx-background-color: #67944C;">
+         <children>
+            <Button fx:id="medicament" layoutX="23.0" layoutY="-1.0" mnemonicParsing="false" onAction="#medicamentsview" prefHeight="71.0" prefWidth="258.0" text="     MEDICAMENTS">
+               <font>
+                  <Font name="MuktaMahee SemiBold" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="70.0" mnemonicParsing="false" onAction="#venteview" prefHeight="71.0" prefWidth="267.0" text="VENTES">
+               <font>
+                  <Font name="MuktaMahee SemiBold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="employe" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#employeview" prefHeight="71.0" prefWidth="267.0" text="EMPLOYES">
+               <font>
+                  <Font name="MuktaMahee SemiBold" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="15.0" layoutY="212.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="267.0" text="UTILISATEURS">
+               <font>
+                  <Font name="MuktaMahee SemiBold" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="15.0" layoutY="284.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="267.0" text="STATISTIQUES">
+               <font>
+                  <Font name="MuktaMahee SemiBold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="deconnexion" layoutX="15.0" layoutY="356.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="71.0" prefWidth="267.0" text="DECONNEXION">
+               <font>
+                  <Font name="MuktaMahee SemiBold" size="13.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="6.0" layoutY="-12.0" prefHeight="457.0" prefWidth="56.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
