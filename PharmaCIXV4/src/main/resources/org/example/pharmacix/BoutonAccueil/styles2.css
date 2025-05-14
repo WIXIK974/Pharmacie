@@ -1,0 +1,159 @@
+/* Style général pour le StackPane */
+.stack-pane {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Style pour l'AnchorPane (fond de l'application) */
+.anchor-pane {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #00796b;
+    -fx-border-width: 2px;
+}
+
+.table-view .table-row-cell:selected,
+.table-view .table-row-cell:selected:hover {
+    -fx-background-color: #a5d6a7 !important; /* Vert clair visible */
+    -fx-text-fill: #000000 !important; /* Texte noir bien lisible */
+}
+
+Button {
+    -fx-background-color: #4CAF50; /* Vert */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 40px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.5, 0, 3);
+}
+
+/* Style pour les TextField (champs de texte) */
+.text-field {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-background-color: #e8f5e9;
+    -fx-border-color: #4caf50;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-text-fill: #212121;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+/* Style pour les PasswordField (champs de mot de passe) */
+.password-field {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-background-color: #e8f5e9;
+    -fx-border-color: #4caf50;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-text-fill: #212121;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+/* Style pour l'ImageView (image) */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.5, 0, 0);
+    -fx-border-color: #4caf50;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+}
+
+/* Ajout d'un style personnalisé au focus */
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #00796b;
+    -fx-background-color: #ffffff;
+    -fx-border-width: 2px;
+}
+
+/* Style global */
+* {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-base: #f4f4f4;
+}
+
+/* Style pour la TableView */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+    -fx-table-cell-border-color: #dddddd;
+    -fx-table-header-border-color: #dddddd;
+}
+
+.table-view .column-header {
+    -fx-background-color: #4CAF50; /* Vert pour les en-têtes */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell:filled {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f1f1f1;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Style des colonnes */
+.table-view .table-column {
+    -fx-alignment: CENTER;
+}
+
+.table-view .table-column .table-cell {
+    -fx-padding: 5px;
+}
+
+/* Boutons */
+Button {
+    -fx-background-color: #4CAF50; /* Vert */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 40px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.5, 0, 3);
+}
+
+Button:hover {
+    -fx-background-color: #45a049; /* Hover effet */
+}
+
+Button:pressed {
+    -fx-background-color: #388e3c; /* Couleur au clic */
+}
+
+/* Conteneur principal (AnchorPane) */
+AnchorPane {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 20px;
+}
+
+/* Espace de la TableView */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1px;
+    -fx-border-color: #cccccc;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.5, 0, 3);
+}
+
+/* Stacking Pane (si utilisé) */
+StackPane {
+    -fx-background-color: #fafafa;
+}
+
+/* Style pour les colonnes spécifiques */
+#nomColum, #numMedicamentColum, #tableauColum, #prixColum, #quantiteParUniteColum, #typeColum, #enVenteLibreColum {
+    -fx-alignment: CENTER;
+    -fx-padding: 5px;
+    -fx-font-weight: bold;
+}
+
