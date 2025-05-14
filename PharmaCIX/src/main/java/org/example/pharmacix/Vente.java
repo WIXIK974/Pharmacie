@@ -45,6 +45,6 @@ public class Vente {
     public Integer getFk_numOrdonnance() {
         return fk_numOrdonnance;
     }
-    }
+}
 
 
