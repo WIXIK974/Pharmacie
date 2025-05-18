@@ -66,16 +66,17 @@ public class VenteController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/pharmacix/AjSupStock/AjouterVente.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
-            stage.setTitle("Ajouter une vente"); 
+            stage.setTitle("Ajouter une vente");
 
             AjouterVente controller = loader.getController();
-            controller.setVenteController(this); // Si tu as ce setter
+            controller.setVenteController(this); // OK si ce setter existe
 
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     public void menuview(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/pharmacix/Menu.fxml"));

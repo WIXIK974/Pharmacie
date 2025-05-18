@@ -8,11 +8,12 @@
       spacing="10" alignment="CENTER">
 
     <Label text="Ajouter un Employé" />
-    <TextField fx:id="txtIdPersonne" promptText="ID Personne" />
     <TextField fx:id="txtProfession" promptText="Profession" />
     <TextField fx:id="txtSalaire" promptText="Salaire" />
     <TextField fx:id="txtTypeContrat" promptText="Type de Contrat" />
     <TextField fx:id="txtStatus" promptText="Status" />
+    <TextField fx:id="txtIdentifiant" promptText="Identifiant" />
+    <PasswordField fx:id="txtPassword" promptText="Mot de Passe" />
 
     <Button text="Valider" onAction="#validerAjout" />
 </VBox>

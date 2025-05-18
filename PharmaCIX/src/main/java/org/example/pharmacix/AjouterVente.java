@@ -21,16 +21,24 @@ public class AjouterVente {
     @FXML
     private void validerAjout() {
         String numeroSS = txtNumeroSS.getText().trim();
-        String numEmploye = txtNumEmploye.getText().trim();
+        String numEmployeStr = txtNumEmploye.getText().trim();
         String numMedicament = txtNumMedicament.getText().trim();
         String numOrdonnanceStr = txtNumOrdonnance.getText().trim();
 
-        if (numeroSS.isEmpty() || numEmploye.isEmpty() || numMedicament.isEmpty() || numOrdonnanceStr.isEmpty()) {
+        if (numeroSS.isEmpty() || numEmployeStr.isEmpty() || numMedicament.isEmpty() || numOrdonnanceStr.isEmpty()) {
             afficherErreur("Veuillez remplir tous les champs.");
             return;
         }
 
+        int numEmploye;
         int numOrdonnance;
+        try {
+            numEmploye = Integer.parseInt(numEmployeStr);
+        } catch (NumberFormatException e) {
+            afficherErreur("Numéro d'employé invalide.");
+            return;
+        }
+
         try {
             numOrdonnance = Integer.parseInt(numOrdonnanceStr);
         } catch (NumberFormatException e) {
@@ -45,6 +53,7 @@ public class AjouterVente {
 
         if (venteDAO.ajouterVente(vente)) {
             venteController.rafraichirTable();
+            System.out.println("Vente ajoutée avec ID: " + vente.getNumVente()); // optional
             ((Stage) txtNumeroSS.getScene().getWindow()).close();
         } else {
             afficherErreur("Erreur lors de l'ajout de la vente.");

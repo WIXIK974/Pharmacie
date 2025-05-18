@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pharmacix.CommandeController">
-    <children>
-        <Button fx:id="btnMenu" layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#menuview" text="Menu" />
-        <TableView fx:id="CommandeTable" layoutX="14.0" layoutY="14.0" prefHeight="491.0" prefWidth="725.0">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.pharmacix.CommandeController"
+            prefHeight="500" prefWidth="700">
+    <top>
+        <ToolBar>
+            <Button text="Menu" onAction="#retourMenu" />
+            <Button text="Ajouter Commande" onAction="#ajouterCommande" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="tableCommandes">
             <columns>
-                <TableColumn fx:id="numCommandeColumn" prefWidth="100" text="numéro de commande" />
-                <TableColumn fx:id="dateCommandeColumn" prefWidth="100" text="date de Commande" />
-                <TableColumn fx:id="dateLivraisonColumn" prefWidth="100" text="date de livraison" />
-                <TableColumn fx:id="quantiteCommandeColumn" prefWidth="80" text="quantité commandée" />
-                <TableColumn fx:id="fk_numEmployeColumn" prefWidth="120" text="Numéro employé" /> <!-- numéro de l'employé qui a lancer le processus de livraison-->
-                <TableColumn fx:id="fk_numFournisseurColumn" prefWidth="120" text="Numéro fournisseur"/>
-                <TableColumn fx:id="statusColumn" prefWidth="120" text="status de livraison"/>
+                <TableColumn fx:id="colNumCommande" text="N° Commande" prefWidth="100"/>
+                <TableColumn fx:id="colDateCommande" text="Date Commande" prefWidth="120"/>
+                <TableColumn fx:id="colDateLivraison" text="Date Livraison" prefWidth="120"/>
+                <TableColumn fx:id="colQuantite" text="Quantité" prefWidth="80"/>
+                <TableColumn fx:id="colNumEmploye" text="Employé" prefWidth="100"/>
+                <TableColumn fx:id="colNumFournisseur" text="Fournisseur" prefWidth="100"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="80"/>
             </columns>
         </TableView>
-    </children>
-</AnchorPane>
+    </center>
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+</BorderPane>

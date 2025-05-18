@@ -20,7 +20,7 @@ public class VenteDAO {
                         rs.getInt("numVente"),
                         rs.getDate("dateVente"),
                         rs.getString("fk_numeroSS"),
-                        rs.getString("fk_numEmploye"),
+                        rs.getInt("fk_numEmploye"),
                         rs.getString("fk_numMedicament"),
                         rs.getInt("fk_numOrdonnance")
                 );
@@ -49,15 +49,26 @@ public class VenteDAO {
     public boolean ajouterVente(Vente vente) {
         String sql = "INSERT INTO Vente (dateVente, fk_numeroSS, fk_numEmploye, fk_numMedicament, fk_numOrdonnance) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = connector.connectDb();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setDate(1, new java.sql.Date(vente.getDateVente().getTime()));
             stmt.setString(2, vente.getFk_numeroSS());
-            stmt.setString(3, vente.getFk_numEmploye());
+            stmt.setInt(3, vente.getFk_numEmploye());
             stmt.setString(4, vente.getFk_numMedicament());
             stmt.setInt(5, vente.getFk_numOrdonnance());
 
-            return stmt.executeUpdate() > 0;
+            int affectedRows = stmt.executeUpdate();
+            if (affectedRows == 0) {
+                return false;
+            }
+
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    vente.setNumVente(generatedKeys.getInt(1));
+                }
+            }
+
+            return true;
         } catch (SQLException e) {
             System.err.println("Error during INSERT: " + e.getMessage());
             e.printStackTrace();
@@ -65,3 +76,4 @@ public class VenteDAO {
         }
     }
 }
+

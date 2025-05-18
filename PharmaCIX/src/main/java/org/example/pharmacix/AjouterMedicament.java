@@ -1,8 +1,9 @@
-
 package org.example.pharmacix;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AjouterMedicament {
@@ -33,7 +34,7 @@ public class AjouterMedicament {
         }
 
         double prix;
-        String quantite;
+        int quantite;
         try {
             prix = Double.parseDouble(txtPrix.getText());
             if (prix < 0) {
@@ -45,13 +46,18 @@ public class AjouterMedicament {
             return;
         }
 
-        quantite = txtQuantite.getText();
-        if (quantite.isEmpty()) {
-            afficherErreur("Veuillez entrer une quantité.");
+        try {
+            quantite = Integer.parseInt(txtQuantite.getText());
+            if (quantite < 0) {
+                afficherErreur("La quantité ne peut pas être négative.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            afficherErreur("Veuillez entrer une quantité valide.");
             return;
         }
 
-        Medicament medicament = new Medicament("0", nom , prix, type, tableau, enVenteLibre, quantite);
+        Medicament medicament = new Medicament(0, nom , prix, type, tableau, enVenteLibre, quantite);
 
         if (medicamentDAO.ajouterMedicament(medicament)) {
             medicamentsController.rafraichirTable();
@@ -70,6 +76,3 @@ public class AjouterMedicament {
         this.medicamentsController = controller;
     }
 }
-
-
-

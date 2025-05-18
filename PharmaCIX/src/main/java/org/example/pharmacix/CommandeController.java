@@ -96,7 +96,7 @@ public class CommandeController {
             // Parcourt le résultat ligne par ligne
             while (rs.next()) {
                 // Récupération de chaque champ de la ligne
-                int numCommande = rs.getInt("numCommande");
+                String numCommande = rs.getString("numCommande");
                 Date dateCommande = rs.getDate("dateCommande");
                 Date dateLivraison = rs.getDate("dateLivraison");
                 Integer quantiteCommande = rs.getInt("quantiteCommande");

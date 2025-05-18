@@ -5,10 +5,10 @@ public class Employe {
     private String profession;           // Profession de l'employé
     private float salaire;               // Salaire de l'employé
     private String typeContrat;          // Type de contrat (ex : CDI, CDD, stage...)
-    private String status;
+    private int status;
 
     // Constructeur pour initialiser un employé avec toutes ses propriétés
-    public Employe(int idPersonne, String profession, float salaire, String typeContrat, String status) {
+    public Employe(int idPersonne, String profession, float salaire, String typeContrat, int status) {
         this.idPersonne = idPersonne;
         this.profession = profession;
         this.salaire = salaire;
@@ -33,7 +33,7 @@ public class Employe {
         return typeContrat;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
