@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.pharmacix.AjouterMedicament"
+      spacing="10" alignment="CENTER">
+
+    <Label text="Nom :" />
+    <TextField fx:id="txtNom" />
+
+    <Label text="Description :" />
+    <TextField fx:id="txtDescription" />
+
+    <Label text="Prix :" />
+    <TextField fx:id="txtPrix" />
+
+    <Label text="Type :" />
+    <TextField fx:id="txtType" />
+
+    <Label text="Tableau :" />
+    <TextField fx:id="txtTableau" />
+
+    <CheckBox fx:id="checkEnVenteLibre" text="En vente libre" />
+
+    <Label text="Quantité :" />
+    <TextField fx:id="txtQuantite" />
+
+    <Button text="Valider" onAction="#validerAjout" />
+</VBox>
