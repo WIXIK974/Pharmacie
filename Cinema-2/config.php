@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$db   = 'cinemadb';
-$user = 'root';
-$pass = 'root';
+$host = 'franck.zabou.xyz';
+$db   = 'Cinema';
+$user = 'Jean';
+$pass = 'hEb6DnBIFitYMx0WR8ye';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
