@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.pharmacix.CommandeController"
+            prefHeight="500" prefWidth="700">
+    <top>
+        <ToolBar>
+            <Button text="Menu" onAction="#retourMenu" />
+            <Button text="Ajouter Commande" onAction="#ajouterCommande" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="tableCommandes">
+            <columns>
+                <TableColumn fx:id="colNumCommande" text="N° Commande" prefWidth="100"/>
+                <TableColumn fx:id="colDateCommande" text="Date Commande" prefWidth="120"/>
+                <TableColumn fx:id="colDateLivraison" text="Date Livraison" prefWidth="120"/>
+                <TableColumn fx:id="colQuantite" text="Quantité" prefWidth="80"/>
+                <TableColumn fx:id="colNumEmploye" text="Employé" prefWidth="100"/>
+                <TableColumn fx:id="colNumFournisseur" text="Fournisseur" prefWidth="100"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+</BorderPane>
