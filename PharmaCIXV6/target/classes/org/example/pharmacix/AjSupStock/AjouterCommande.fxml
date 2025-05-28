@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.pharmacix.AjouterCommandeController"
+      spacing="10" alignment="CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Date commande (yyyy-mm-dd) :" />
+    <TextField fx:id="txtDateCommande" />
+
+    <Label text="Date livraison (yyyy-mm-dd) :" />
+    <TextField fx:id="txtDateLivraison" />
+
+    <Label text="Quantité :" />
+    <TextField fx:id="txtQuantite" />
+
+    <Label text="N° Employé :" />
+    <TextField fx:id="txtNumEmploye" />
+
+    <Label text="N° Fournisseur :" />
+    <TextField fx:id="txtNumFournisseur" />
+
+    <Label text="Status (0 = en cours, 1 = livré) :" />
+    <TextField fx:id="txtStatus" />
+
+    <Button text="Valider" onAction="#validerAjout" />
+</VBox>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.pharmacix.AjouterVente"
+      spacing="10" alignment="CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Numéro de sécurité sociale :" />
+    <TextField fx:id="txtNumeroSS" />
+
+    <Label text="ID de personne :" /> <!-- Changé de "Numéro d'employé" à "ID de personne" -->
+    <TextField fx:id="txtIdPersonne" /> <!-- Changé de txtNumEmploye à txtIdPersonne -->
+
+    <Label text="Numéro de médicament :" />
+    <TextField fx:id="txtNumMedicament" />
+
+    <Label text="Numéro d'ordonnance :" />
+    <TextField fx:id="txtNumOrdonnance" />
+
+    <Label text="Quantité vendue :" />
+    <TextField fx:id="txtQuantiteVendue" />
+
+    <Button text="Valider" onAction="#validerAjout" />
+</VBox>
