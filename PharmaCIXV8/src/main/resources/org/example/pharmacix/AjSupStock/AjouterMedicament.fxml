@@ -6,27 +6,27 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="524.0" prefWidth="299.0" spacing="10" stylesheets="@../CSS/MenuEtAccueil/styles2.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pharmacix.AjouterMedicament">
+<VBox alignment="CENTER" prefHeight="553.0" prefWidth="393.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pharmacix.AjouterMedicament">
 
-    <Label text="Nom :" />
-    <TextField fx:id="txtNom" />
+    <Label stylesheets="@../CSS/MenuEtAccueil/styles2.css" text="Nom :" />
+    <TextField fx:id="txtNom" stylesheets="@../CSS/MenuEtAccueil/styles2.css" />
 
-    <Label text="Description :" />
-    <TextField fx:id="txtDescription" />
+    <Label stylesheets="@../CSS/MenuEtAccueil/styles2.css" text="Description :" />
+    <TextField fx:id="txtDescription" stylesheets="@../CSS/MenuEtAccueil/styles2.css" />
 
-    <Label text="Prix :" />
-    <TextField fx:id="txtPrix" />
+    <Label stylesheets="@../CSS/MenuEtAccueil/styles2.css" text="Prix :" />
+    <TextField fx:id="txtPrix" stylesheets="@../CSS/MenuEtAccueil/styles2.css" />
 
-    <Label text="Type :" />
-    <TextField fx:id="txtType" />
+    <Label stylesheets="@../CSS/MenuEtAccueil/styles2.css" text="Type :" />
+    <TextField fx:id="txtType" stylesheets="@../CSS/MenuEtAccueil/styles2.css" />
 
-    <Label text="Tableau :" />
-    <TextField fx:id="txtTableau" />
+    <Label stylesheets="@../CSS/MenuEtAccueil/styles2.css" text="Tableau :" />
+    <TextField fx:id="txtTableau" stylesheets="@../CSS/MenuEtAccueil/styles2.css" />
 
     <CheckBox fx:id="checkEnVenteLibre" text="En vente libre" />
 
-    <Label text="Quantité :" />
-    <TextField fx:id="txtQuantite" />
+    <Label stylesheets="@../CSS/MenuEtAccueil/styles2.css" text="Quantité :" />
+    <TextField fx:id="txtQuantite" stylesheets="@../CSS/MenuEtAccueil/styles2.css" />
 
-    <Button onAction="#validerAjout" text="Valider" />
+    <Button onAction="#validerAjout" stylesheets="@../CSS/MenuEtAccueil/styles2.css" text="Valider" />
 </VBox>
